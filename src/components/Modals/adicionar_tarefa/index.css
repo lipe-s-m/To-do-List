@@ -1,0 +1,31 @@
+/* Estilos para a sobreposição e o modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.modal-content {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 21%;
+  margin-top: -12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  border-radius: 30px;
+}
+
+.modal-content h1{
+    font-size: 40px;
+    opacity: 0.7;
+    font-weight: bold;
+}

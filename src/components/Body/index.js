@@ -22,23 +22,24 @@ function Body() {
   }, [isOpen]);
 
   const adicionarTarefa = () => {
-    setIsOpen(!isOpen);
-    setList([
-      ...list,
-      {
-        title: "Limpar coco do gato MANO SKSKSKSKSKSKSKSKSK",
-        description: "oi",
-        urgency: "cie",
-      },
-    ]);
+    setIsOpen(true);
+    // setList([
+    //   ...list,
+    //   {
+    //     title: "Limpar coco do gato MANO SKSKSKSKSKSKSKSKSK",
+    //     description: "oi",
+    //     urgency: "cie",
+    //   },
+    // ]);
     console.log(isOpen);
   };
 
   return (
     <>
       <section className="body-background">
-        <AddTarefaModal isOpen={isOpen} />
-        <div className="container">
+        <AddTarefaModal isOpen={isOpen} setIsOpen={setIsOpen} />
+
+        <div className={isOpen ? "container blurred" : "container"}>
           <div id="filters">
             <p>Filtrar</p>
             <img className="icons" src={filterIcon} alt="Ícone de filtro" />
