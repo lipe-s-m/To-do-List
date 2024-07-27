@@ -1,32 +1,16 @@
 import { useRef } from "react";
 import "./index.css";
-import { useForm } from "react-hook-form";
-import {useSelector, useDispatch} from "react-redux"
-import { addTask } from "../../../redux/task/action";
+import { useSelector, useDispatch } from "react-redux";
+import { removeTask } from "../../../redux/task/action";
 
-function DeleteTarefaModal({ isOpenDelete, setisOpenDelete }) {
-
-  //metodos do useForm
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
-
+function DeleteTarefaModal({ isOpenDelete, setisOpenDelete, index }) {
   const dispatch = useDispatch();
 
   const modalRef = useRef();
 
-  //Confirmar envio da tarefa
-  const handleDeletarSubmitClick = (data) => {
-    dispatch(removeTask(data));
-    reset({
-      nome: null,
-      descricao: null,
-      dificuldade: "0",
-    });
-
+  //Confirmar exclusão da tarefa
+  const handleDeletarSubmitClick = () => {
+    dispatch(removeTask(index));
     setisOpenDelete(false);
   };
 
@@ -34,11 +18,6 @@ function DeleteTarefaModal({ isOpenDelete, setisOpenDelete }) {
   //se sim, o modal vai ser fechado
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
-      reset({
-        nome: null,
-        descricao: null,
-        dificuldade: "0",
-      });
       setisOpenDelete(false);
     }
   };
@@ -48,50 +27,18 @@ function DeleteTarefaModal({ isOpenDelete, setisOpenDelete }) {
     <>
       <div className="modal-overlay" onClick={handleClickOutside}>
         <div className="modal-content" ref={modalRef}>
-          <h1>Adicionar Tarefa</h1>
+          <h1 className="text-red">Excluir Tarefa</h1>
 
-          <div className="form-group">
-            <label>* Nome da Tarefa</label>
-            <input
-              className={errors?.nome && "input-error"}
-              type="text"
-              placeholder="Insira o nome da tarefa aqui..."
-              {...register("nome", { required: true })}
-            />
-            {errors?.nome?.type === "required" && (
-              <p className="text-error">O nome da tarefa é Obrigatório</p>
-            )}
+          <p className="aviso">Tem certeza que deseja excluir essa tarefa?</p>
 
-            <label>Descrição da Tarefa</label>
-            <input
-              type="text"
-              placeholder="Insira o descrição da tarefa aqui..."
-              {...register("descricao")}
-            />
-
-            <label>Dificuldade da Tarefa</label>
-            <select
-              className={errors?.dificuldade && "input-error"}
-              {...register("dificuldade", {
-                validate: (value) => {
-                  return value !== "0";
-                },
-              })}
-            >
-              <option value="0">Selecione uma Opção</option>
-              <option value="facil">Fácil</option>
-              <option value="medio">Médio</option>
-              <option value="dificil">Difícil</option>
-            </select>
-            {errors?.dificuldade?.type && (
-              <p className="text-error">Selecione o nivel de dificuldade</p>
-            )}
-          </div>
-
-          {console.log({ errors })}
-
-          <button onClick={() => handleSubmit(handleDeletarSubmitClick)()}>
+          <button className="confirm-button" onClick={handleDeletarSubmitClick}>
             Confirmar
+          </button>
+          <button
+            className="cancel-button"
+            onClick={() => setisOpenDelete(false)}
+          >
+            Cancelar
           </button>
         </div>
       </div>

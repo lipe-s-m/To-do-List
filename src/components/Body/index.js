@@ -4,27 +4,19 @@ import Tasks from "../Tasks";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import AddTarefaModal from "../Modals/adicionar_tarefa";
-import DeleteTarefaModal from "../Modals/excluir-tarefa";
 
 function Body() {
   const [isOpenAdd, setisOpenAdd] = useState(false);
-  const [isOpenDelete, setisOpenDelete] = useState(false);
   const [isOpenEdit, setisOpenEdit] = useState(false);
 
-  const lista = useSelector((rootReducers) => rootReducers.taskReducer.tasks);
-  const list = lista.filter(task => task.nome !== null)
-  const adicionarTarefa = () => {
-    setisOpenAdd(true);
-    console.log(list)
-  };
-
-
+  const list = useSelector((rootReducers) => rootReducers.taskReducer.tasks);
+  const filterList = list.filter((task) => task.status === "pendente")
 
   return (
     <>
+      {console.log({list})}
       <section className="body-background">
       <AddTarefaModal isOpenAdd={isOpenAdd} setisOpenAdd={setisOpenAdd} />
-      <DeleteTarefaModal isOpenDelete={isOpenDelete} setisOpenDelete={setisOpenDelete} />
 
         <div className={isOpenAdd ? "container blurred" : "container"}>
           <label id="filters">
@@ -40,13 +32,15 @@ function Body() {
           {list.map((task, index) => (
             <Tasks
               key={index}
+              index={index}
               nome={task.nome}
               descricao={task.descricao}
               dificuldade={task.dificuldade}
+              status={task.status}
             />
-          ))}
+          )) }
 
-          <button onClick={adicionarTarefa}>Adicionar Tarefa</button>
+          <button onClick={(e) => setisOpenAdd(true)}>Adicionar Tarefa</button>
         </div>
       </section>
     </>

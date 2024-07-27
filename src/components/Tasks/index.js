@@ -2,13 +2,42 @@ import descButton from "./../../ui/Icons/descricao-button.png";
 import editButton from "./../../ui/Icons/editar-button.png";
 import deleteButton from "./../../ui/Icons/delete-button.png";
 import "./index.css";
+import DeleteTarefaModal from "../Modals/excluir-tarefa";
+import { useState } from "react";
 
-function Tasks({ nome, descricao, dificuldade }) {
+function Tasks({ index, nome, descricao, dificuldade, status }) {
+  const [isOpenDelete, setisOpenDelete] = useState(false);
+
   return (
     <>
-      <div className="task">
+      <DeleteTarefaModal
+        isOpenDelete={isOpenDelete}
+        setisOpenDelete={setisOpenDelete}
+        index={index}
+      />
+
+      <div
+        className={
+          status === "pendente"
+            ? "task pendente"
+            : status === "concluida"
+            ? "task concluida"
+            : ""
+        }
+      >
         <div id="task-left">
-          <h2>{nome}</h2>
+          {console.log(nome + status)}
+          <h2
+            className={
+              status === "pendente"
+                ? "pendente"
+                : status === "concluida"
+                ? "concluida"
+                : ""
+            }
+          >
+            {nome}
+          </h2>
           <p className="data">25/07/2024 - 18:00</p>
         </div>
         <div id="actions">
@@ -27,7 +56,7 @@ function Tasks({ nome, descricao, dificuldade }) {
               className="icon-delete"
               src={deleteButton}
               alt="Icone de descrição da tarefa"
-              onClick={(e) => alert("TROLEI KKK")}
+              onClick={(e) => setisOpenDelete(true)}
             />
           </span>
           <span className="actions-texts">

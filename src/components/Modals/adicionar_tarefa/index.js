@@ -1,11 +1,10 @@
 import { useRef } from "react";
 import "./index.css";
 import { useForm } from "react-hook-form";
-import {useSelector, useDispatch} from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
 import { addTask } from "../../../redux/task/action";
 
 function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
-
   //metodos do useForm
   const {
     register,
@@ -20,7 +19,11 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
 
   //Confirmar envio da tarefa
   const handleAdicionarSubmitClick = (data) => {
-    dispatch(addTask(data));
+    const newTask = {
+      ...data,
+      status: "pendente",
+    };
+    dispatch(addTask(newTask));
     reset({
       nome: null,
       descricao: null,
@@ -87,9 +90,6 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
               <p className="text-error">Selecione o nivel de dificuldade</p>
             )}
           </div>
-
-          {console.log({ errors })}
-
           <button onClick={() => handleSubmit(handleAdicionarSubmitClick)()}>
             Confirmar
           </button>
