@@ -7,7 +7,6 @@ import AddTarefaModal from "../Modals/adicionar_tarefa";
 
 function Body() {
   const [isOpenAdd, setisOpenAdd] = useState(false);
-  const [isOpenEdit, setisOpenEdit] = useState(false);
 
   const list = useSelector((rootReducers) => rootReducers.taskReducer.tasks);
   const filterList = list.filter((task) => task.status === "pendente")
@@ -32,11 +31,12 @@ function Body() {
           {list.map((task, index) => (
             <Tasks
               key={index}
-              index={index}
+              id={task.id}
               nome={task.nome}
               descricao={task.descricao}
               dificuldade={task.dificuldade}
               status={task.status}
+              ultimaModificacao={task.ultimaModificacao}
             />
           )) }
 

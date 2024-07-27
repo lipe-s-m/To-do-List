@@ -2,18 +2,28 @@ import descButton from "./../../ui/Icons/descricao-button.png";
 import editButton from "./../../ui/Icons/editar-button.png";
 import deleteButton from "./../../ui/Icons/delete-button.png";
 import "./index.css";
-import DeleteTarefaModal from "../Modals/excluir-tarefa";
+import DeleteTarefaModal from "../Modals/excluir_tarefa";
 import { useState } from "react";
+import EditTarefaModal from "../Modals/editar_tarefa";
 
-function Tasks({ index, nome, descricao, dificuldade, status }) {
-  const [isOpenDelete, setisOpenDelete] = useState(false);
+function Tasks(props) {
+  const { id, nome, descricao, dificuldade, status, ultimaModificacao } =
+    props;
+
+  const [isOpenDelete, setIsOpenDelete] = useState(false);
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
 
   return (
     <>
       <DeleteTarefaModal
         isOpenDelete={isOpenDelete}
-        setisOpenDelete={setisOpenDelete}
-        index={index}
+        setIsOpenDelete={setIsOpenDelete}
+        id={id}
+      />
+      <EditTarefaModal
+        isOpenEdit={isOpenEdit}
+        setIsOpenEdit={setIsOpenEdit}
+        task={props}
       />
 
       <div
@@ -26,7 +36,6 @@ function Tasks({ index, nome, descricao, dificuldade, status }) {
         }
       >
         <div id="task-left">
-          {console.log(nome + status)}
           <h2
             className={
               status === "pendente"
@@ -45,18 +54,19 @@ function Tasks({ index, nome, descricao, dificuldade, status }) {
             <img
               className="icons"
               src={descButton}
-              alt="Icone de descrição da tarefa"
+              alt="Icone dos detalhes da tarefa"
             />
             <img
               className="icons"
               src={editButton}
-              alt="Icone de descrição da tarefa"
+              alt="Icone de edição da tarefa"
+              onClick={(e) => setIsOpenEdit(true)}
             />
             <img
               className="icon-delete"
               src={deleteButton}
-              alt="Icone de descrição da tarefa"
-              onClick={(e) => setisOpenDelete(true)}
+              alt="Icone de excluir a tarefa"
+              onClick={(e) => setIsOpenDelete(true)}
             />
           </span>
           <span className="actions-texts">

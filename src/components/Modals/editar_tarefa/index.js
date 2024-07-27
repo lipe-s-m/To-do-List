@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./index.css";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
-import { addTask } from "../../../redux/task/action";
+import { editTask } from "../../../redux/task/action";
 
-function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
+function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
+  const { id, nome, descricao, dificuldade, status, ultimaModificacao } = task;
+
   //metodos do useForm
   const {
     register,
@@ -17,22 +19,30 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
 
   const modalRef = useRef();
 
-
   //Confirmar envio da tarefa
-  const handleAdicionarSubmitClick = (data) => {
-    const newTask = {
+  const handleEditarSubmitClick = (data) => {
+    if (data.nome === "" || data.nome === null) {
+      data.nome = nome;
+    }
+
+    if (data.dificuldade === "0"|| data.dificuldade === null ) {
+        data.dificuldade = dificuldade;
+    }
+    const updatedTask = {
       ...data,
-      status: "pendente",
-      ultimaModificacao: "por a data atual",
+      id: id,
+      status: status,
+      ultimaModificacao: "data da modificação",
     };
-    dispatch(addTask(newTask));
+
+    dispatch(editTask(updatedTask));
     reset({
       nome: null,
       descricao: null,
       dificuldade: "0",
     });
 
-    setisOpenAdd(false);
+    setIsOpenEdit(false);
   };
 
   //verifica se clicou fora do modal
@@ -44,28 +54,25 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
         descricao: null,
         dificuldade: "0",
       });
-      setisOpenAdd(false);
+      setIsOpenEdit(false);
     }
   };
 
-  if (!isOpenAdd) return null;
+  if (!isOpenEdit) return null;
   return (
     <>
       <div className="modal-overlay" onClick={handleClickOutside}>
         <div className="modal-content" ref={modalRef}>
-          <h1>Adicionar Tarefa</h1>
+          <h1>Editar Tarefa</h1>
 
           <div className="form-group">
-            <label>* Nome da Tarefa</label>
+            <label>Nome da Tarefa</label>
             <input
               className={errors?.nome && "input-error"}
               type="text"
-              placeholder="Insira o nome da tarefa aqui..."
-              {...register("nome", { required: true })}
+              placeholder={`" ${nome} "`}
+              {...register("nome")}
             />
-            {errors?.nome?.type === "required" && (
-              <p className="text-error">O nome da tarefa é Obrigatório</p>
-            )}
 
             <label>Descrição da Tarefa</label>
             <input
@@ -75,24 +82,14 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
             />
 
             <label>Dificuldade da Tarefa</label>
-            <select
-              className={errors?.dificuldade && "input-error"}
-              {...register("dificuldade", {
-                validate: (value) => {
-                  return value !== "0";
-                },
-              })}
-            >
+            <select {...register("dificuldade", {})}>
               <option value="0">Selecione uma Opção</option>
               <option value="facil">Fácil</option>
               <option value="medio">Médio</option>
               <option value="dificil">Difícil</option>
             </select>
-            {errors?.dificuldade?.type && (
-              <p className="text-error">Selecione o nivel de dificuldade</p>
-            )}
           </div>
-          <button onClick={() => handleSubmit(handleAdicionarSubmitClick)()}>
+          <button onClick={() => handleSubmit(handleEditarSubmitClick)()}>
             Confirmar
           </button>
         </div>
@@ -101,4 +98,4 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
   );
 }
 
-export default AddTarefaModal;
+export default EditTarefaModal;

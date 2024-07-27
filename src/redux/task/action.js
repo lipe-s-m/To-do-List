@@ -9,3 +9,8 @@ export const removeTask = (payload) => ({
   type: taskActionType.REMOVE,
   payload,
 })
+
+export const editTask = (payload) => ({
+  type: taskActionType.EDIT,
+  payload,
+})

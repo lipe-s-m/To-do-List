@@ -3,22 +3,22 @@ import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTask } from "../../../redux/task/action";
 
-function DeleteTarefaModal({ isOpenDelete, setisOpenDelete, index }) {
+function DeleteTarefaModal({ isOpenDelete, setIsOpenDelete, id }) {
   const dispatch = useDispatch();
 
   const modalRef = useRef();
 
   //Confirmar exclusão da tarefa
   const handleDeletarSubmitClick = () => {
-    dispatch(removeTask(index));
-    setisOpenDelete(false);
+    dispatch(removeTask(id));
+    setIsOpenDelete(false);
   };
 
   //verifica se clicou fora do modal
   //se sim, o modal vai ser fechado
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
-      setisOpenDelete(false);
+      setIsOpenDelete(false);
     }
   };
 
@@ -36,7 +36,7 @@ function DeleteTarefaModal({ isOpenDelete, setisOpenDelete, index }) {
           </button>
           <button
             className="cancel-button"
-            onClick={() => setisOpenDelete(false)}
+            onClick={() => setIsOpenDelete(false)}
           >
             Cancelar
           </button>
