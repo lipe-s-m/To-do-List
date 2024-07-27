@@ -1,7 +1,7 @@
 import "./index.css";
 import filterIcon from "./../../ui/Icons/filter.png";
 import Tasks from "../Tasks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddTarefaModal from "../Modals/adicionar_tarefa";
 
 function Body() {
@@ -9,47 +9,43 @@ function Body() {
     {
       title: "Tarefa 1",
       description: null,
-      urgency: null,
+      difficulty: null,
+      status: null,
     },
   ]);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (isOpen) {
-      console.log("Aberto");
-    }
-  }, [isOpen]);
-
   const adicionarTarefa = () => {
     setIsOpen(true);
-    // setList([
-    //   ...list,
-    //   {
-    //     title: "Limpar coco do gato MANO SKSKSKSKSKSKSKSKSK",
-    //     description: "oi",
-    //     urgency: "cie",
-    //   },
-    // ]);
-    console.log(isOpen);
   };
 
   return (
     <>
       <section className="body-background">
-        <AddTarefaModal isOpen={isOpen} setIsOpen={setIsOpen} />
+        <AddTarefaModal
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          list={list}
+          setList={setList}
+        />
 
         <div className={isOpen ? "container blurred" : "container"}>
-          <div id="filters">
-            <p>Filtrar</p>
+          <label id="filters">
             <img className="icons" src={filterIcon} alt="Ícone de filtro" />
-          </div>
+            <p>Filtrar</p>
+            <select>
+              <option value="0">Todas</option>
+              <option value="concluida">Concluídas</option>
+              <option value="pendente">Pendentes</option>
+            </select>
+          </label>
           {list.map((task, index) => (
             <Tasks
               key={index}
               title={task.title}
               description={task.description}
-              urgency={task.urgency}
+              difficulty={task.difficulty}
             />
           ))}
 

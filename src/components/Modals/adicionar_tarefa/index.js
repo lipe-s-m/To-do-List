@@ -1,16 +1,100 @@
+import { useRef } from "react";
 import "./index.css";
-function AddTarefaModal({ setIsOpen, isOpen }) {
-  if (!isOpen) return null;
-  const handleAdicionarSubmitClick = () => {
+import { useForm } from "react-hook-form";
+
+function AddTarefaModal({ isOpen, setIsOpen, list, setList }) {
+  //metodos do useForm
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const modalRef = useRef();
+
+  //Confirmar envio da tarefa
+  const handleAdicionarSubmitClick = (data) => {
+    console.log(data);
+    setList([
+      ...list,
+      {
+        title: data.nome,
+        description: data.descricao,
+        difficulty: data.dificuldade,
+      },
+    ]);
+    reset({
+      nome: null,
+      descricao: null,
+      dificuldade: "0",
+    });
+
     setIsOpen(false);
   };
+
+  //verifica se clicou fora do modal
+  //se sim, o modal vai ser fechado
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      reset({
+        nome: null,
+        descricao: null,
+        dificuldade: "0",
+      });
+      setIsOpen(false);
+    }
+  };
+
+  if (!isOpen) return null;
   return (
     <>
-      <div className="modal-overlay">
-        <div className="modal-content">
+      <div className="modal-overlay" onClick={handleClickOutside}>
+        <div className="modal-content" ref={modalRef}>
           <h1>Adicionar Tarefa</h1>
-          <button onClick={handleAdicionarSubmitClick}>
-            Fecha esse bagulho
+
+          <div className="form-group">
+            <label>* Nome da Tarefa</label>
+            <input
+              className={errors?.nome && "input-error"}
+              type="text"
+              placeholder="Insira o nome da tarefa aqui..."
+              {...register("nome", { required: true })}
+            />
+            {errors?.nome?.type === "required" && (
+              <p className="text-error">O nome da tarefa é Obrigatório</p>
+            )}
+
+            <label>Descrição da Tarefa</label>
+            <input
+              type="text"
+              placeholder="Insira o descrição da tarefa aqui..."
+              {...register("descricao")}
+            />
+
+            <label>Dificuldade da Tarefa</label>
+            <select
+              className={errors?.dificuldade && "input-error"}
+              {...register("dificuldade", {
+                validate: (value) => {
+                  return value !== "0";
+                },
+              })}
+            >
+              <option value="0">Selecione uma Opção</option>
+              <option value="facil">Fácil</option>
+              <option value="medio">Médio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+            {errors?.dificuldade?.type && (
+              <p className="text-error">Selecione o nivel de dificuldade</p>
+            )}
+          </div>
+
+          {console.log({ errors })}
+
+          <button onClick={() => handleSubmit(handleAdicionarSubmitClick)()}>
+            Confirmar
           </button>
         </div>
       </div>

@@ -3,7 +3,7 @@ import editButton from "./../../ui/Icons/editar-button.png";
 import deleteButton from "./../../ui/Icons/delete-button.png";
 import "./index.css";
 
-function Tasks({title, description, urgency}) {
+function Tasks({title, description, difficulty}) {
   return (
     <>
       <div className="task">
