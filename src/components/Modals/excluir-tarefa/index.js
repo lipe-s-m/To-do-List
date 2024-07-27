@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import {useSelector, useDispatch} from "react-redux"
 import { addTask } from "../../../redux/task/action";
 
-function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
+function DeleteTarefaModal({ isOpenDelete, setisOpenDelete }) {
 
   //metodos do useForm
   const {
@@ -19,15 +19,15 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
   const modalRef = useRef();
 
   //Confirmar envio da tarefa
-  const handleAdicionarSubmitClick = (data) => {
-    dispatch(addTask(data));
+  const handleDeletarSubmitClick = (data) => {
+    dispatch(removeTask(data));
     reset({
       nome: null,
       descricao: null,
       dificuldade: "0",
     });
 
-    setisOpenAdd(false);
+    setisOpenDelete(false);
   };
 
   //verifica se clicou fora do modal
@@ -39,11 +39,11 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
         descricao: null,
         dificuldade: "0",
       });
-      setisOpenAdd(false);
+      setisOpenDelete(false);
     }
   };
 
-  if (!isOpenAdd) return null;
+  if (!isOpenDelete) return null;
   return (
     <>
       <div className="modal-overlay" onClick={handleClickOutside}>
@@ -90,7 +90,7 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
 
           {console.log({ errors })}
 
-          <button onClick={() => handleSubmit(handleAdicionarSubmitClick)()}>
+          <button onClick={() => handleSubmit(handleDeletarSubmitClick)()}>
             Confirmar
           </button>
         </div>
@@ -99,4 +99,4 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
   );
 }
 
-export default AddTarefaModal;
+export default DeleteTarefaModal;

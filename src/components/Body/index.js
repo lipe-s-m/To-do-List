@@ -2,35 +2,31 @@ import "./index.css";
 import filterIcon from "./../../ui/Icons/filter.png";
 import Tasks from "../Tasks";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import AddTarefaModal from "../Modals/adicionar_tarefa";
+import DeleteTarefaModal from "../Modals/excluir-tarefa";
 
 function Body() {
-  const [list, setList] = useState([
-    {
-      title: "Tarefa 1",
-      description: null,
-      difficulty: null,
-      status: null,
-    },
-  ]);
+  const [isOpenAdd, setisOpenAdd] = useState(false);
+  const [isOpenDelete, setisOpenDelete] = useState(false);
+  const [isOpenEdit, setisOpenEdit] = useState(false);
 
-  const [isOpen, setIsOpen] = useState(false);
-
+  const lista = useSelector((rootReducers) => rootReducers.taskReducer.tasks);
+  const list = lista.filter(task => task.nome !== null)
   const adicionarTarefa = () => {
-    setIsOpen(true);
+    setisOpenAdd(true);
+    console.log(list)
   };
+
+
 
   return (
     <>
       <section className="body-background">
-        <AddTarefaModal
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          list={list}
-          setList={setList}
-        />
+      <AddTarefaModal isOpenAdd={isOpenAdd} setisOpenAdd={setisOpenAdd} />
+      <DeleteTarefaModal isOpenDelete={isOpenDelete} setisOpenDelete={setisOpenDelete} />
 
-        <div className={isOpen ? "container blurred" : "container"}>
+        <div className={isOpenAdd ? "container blurred" : "container"}>
           <label id="filters">
             <img className="icons" src={filterIcon} alt="Ícone de filtro" />
             <p>Filtrar</p>
@@ -40,12 +36,13 @@ function Body() {
               <option value="pendente">Pendentes</option>
             </select>
           </label>
+          <hr className="divisor"></hr>
           {list.map((task, index) => (
             <Tasks
               key={index}
-              title={task.title}
-              description={task.description}
-              difficulty={task.difficulty}
+              nome={task.nome}
+              descricao={task.descricao}
+              dificuldade={task.dificuldade}
             />
           ))}
 
