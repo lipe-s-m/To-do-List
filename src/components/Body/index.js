@@ -24,10 +24,10 @@ function Body() {
   };
 
   const handleFilterText = (value) => {
-    console.log(value + " <= value ... finder .> " + findValue)
-    if (value !== null ) {
-      console.log(findValue)
-      console.log(value.length)
+    console.log(value + " <= value ... finder .> " + findValue);
+    if (value !== null) {
+      console.log(findValue);
+      console.log(value.length);
       setFilterList(filterList.filter((task) => task.nome === value));
       setFindValue(null);
       return;
@@ -99,7 +99,8 @@ function Body() {
 
           <button
             onClick={() => {
-              setFilterValue("0"), setisOpenAdd(true);
+              setFilterValue("0");
+              setisOpenAdd(true);
             }}
           >
             Adicionar Tarefa
