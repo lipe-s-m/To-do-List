@@ -1,11 +1,14 @@
 import Body from "../../components/Body";
 import Head from "../../components/Head";
+import "./index.css"
 
 function Home() {
   return (
     <>
-      <Head />
-      <Body />
+      <main className="main fade">
+        <Head />
+        <Body />
+      </main>
     </>
   );
 }

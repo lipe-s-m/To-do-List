@@ -4,6 +4,17 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { addTask } from "../../../redux/task/action";
 
+export const obterDataHora = () => {
+  const data = new Date();
+  const dia = String(data.getDate()).padStart(2, "0");
+  const mes = String(data.getMonth() + 1).padStart(2, "0");
+  const ano = data.getFullYear();
+  const hora = String(data.getHours()).padStart(2, "0");
+  const minutos = String(data.getMinutes()).padStart(2, "0");
+
+  const dataAtual = `${dia}/${mes}/${ano} - ${hora}:${minutos}`;
+  return dataAtual;
+};
 function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
   //metodos do useForm
   const {
@@ -17,13 +28,14 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
 
   const modalRef = useRef();
 
-
   //Confirmar envio da tarefa
   const handleAdicionarSubmitClick = (data) => {
     const newTask = {
       ...data,
       status: "pendente",
-      ultimaModificacao: "por a data atual",
+      dataCriacao: obterDataHora(),
+      ultimaModificacao: obterDataHora(),
+
     };
     dispatch(addTask(newTask));
     reset({
@@ -31,7 +43,6 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
       descricao: null,
       dificuldade: "0",
     });
-
     setisOpenAdd(false);
   };
 
@@ -84,9 +95,9 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
               })}
             >
               <option value="0">Selecione uma Opção</option>
-              <option value="facil">Fácil</option>
-              <option value="medio">Médio</option>
-              <option value="dificil">Difícil</option>
+              <option value="Fácil">Fácil</option>
+              <option value="Médio">Médio</option>
+              <option value="Difícil">Difícil</option>
             </select>
             {errors?.dificuldade?.type && (
               <p className="text-error">Selecione o nivel de dificuldade</p>

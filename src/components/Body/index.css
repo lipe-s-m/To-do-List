@@ -21,14 +21,18 @@
 }
 
 #filters {
-  width: auto;
+  width: 100%;
   margin: 6% auto;
-  margin-left: 60%;
   display: flex;
   align-items: center;
   font-size: 26px;
   font-weight: bold;
   color: RGBA(0, 0, 0, 0.6);
+  justify-content: space-between;
+}
+.filter-select {
+  display: flex;
+  align-items: center;
 }
 #filters p {
   border-bottom-style: solid;
@@ -40,18 +44,38 @@
   background: none;
   border: none;
   padding: 3px;
-  width: 20px;
+  width: 45px;
+  font-size: 0;
+  height: 30px;
 }
-#filters option{
-  width: auto;
-  font-size: 14px;
+
+#filters option {
+  width: 100%;
+  font-size: 15px;
+  padding: 2px;
+}
+
+#filters input {
+  background: none;
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: RGBA(0, 0, 0, 0.3);
+  padding: 10px;
+  width: 220px;
+}
+
+#filters ::placeholder {
+  font-size: 22px;
+  font-weight: bold;
+  color: RGBA(0, 0, 0, 0.6);
+  text-align: start;
 }
 
 .icons {
   height: 32px;
   padding-left: 9px;
 }
-.divisor{
+.divisor {
   margin: -3% auto 6% auto;
   width: 100%;
   opacity: 0.3;

@@ -3,17 +3,13 @@ import "./index.css";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { editTask } from "../../../redux/task/action";
+import { obterDataHora } from "../adicionar_tarefa";
 
 function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
   const { id, nome, descricao, dificuldade, status, ultimaModificacao } = task;
 
   //metodos do useForm
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const dispatch = useDispatch();
 
@@ -21,18 +17,26 @@ function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
 
   //Confirmar envio da tarefa
   const handleEditarSubmitClick = (data) => {
+    if (
+      data.nome === null &&
+      data.descricao === null &&
+      (data.dificuldade === "0" || data.dificuldade === null)
+    ) {
+      setIsOpenEdit(false);
+      return;
+    }
     if (data.nome === "" || data.nome === null) {
       data.nome = nome;
     }
 
-    if (data.dificuldade === "0"|| data.dificuldade === null ) {
-        data.dificuldade = dificuldade;
+    if (data.dificuldade === "0" || data.dificuldade === null) {
+      data.dificuldade = dificuldade;
     }
     const updatedTask = {
       ...data,
       id: id,
       status: status,
-      ultimaModificacao: "data da modificação",
+      ultimaModificacao: obterDataHora(),
     };
 
     dispatch(editTask(updatedTask));
@@ -68,7 +72,6 @@ function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
           <div className="form-group">
             <label>Nome da Tarefa</label>
             <input
-              className={errors?.nome && "input-error"}
               type="text"
               placeholder={`" ${nome} "`}
               {...register("nome")}
@@ -77,16 +80,16 @@ function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
             <label>Descrição da Tarefa</label>
             <input
               type="text"
-              placeholder="Insira o descrição da tarefa aqui..."
+              placeholder={`" ${descricao} "`}
               {...register("descricao")}
             />
 
             <label>Dificuldade da Tarefa</label>
             <select {...register("dificuldade", {})}>
-              <option value="0">Selecione uma Opção</option>
-              <option value="facil">Fácil</option>
-              <option value="medio">Médio</option>
-              <option value="dificil">Difícil</option>
+              <option value="0">{`" Dificuldade atual: ${dificuldade} "`}</option>
+              <option value="Fácil">Fácil</option>
+              <option value="Médio">Médio</option>
+              <option value="Difícil">Difícil</option>
             </select>
           </div>
           <button onClick={() => handleSubmit(handleEditarSubmitClick)()}>

@@ -5,13 +5,15 @@ import "./index.css";
 import DeleteTarefaModal from "../Modals/excluir_tarefa";
 import { useState } from "react";
 import EditTarefaModal from "../Modals/editar_tarefa";
+import DetailsTarefaModal from "../Modals/detalhes_tarefa";
 
 function Tasks(props) {
-  const { id, nome, descricao, dificuldade, status, ultimaModificacao } =
+  const { id, nome, descricao, dificuldade, dataCriacao, status, ultimaModificacao } =
     props;
 
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [isOpenEdit, setIsOpenEdit] = useState(false);
+  const [isOpenDetails, setIsOpenDetails] = useState(false);
 
   return (
     <>
@@ -23,6 +25,11 @@ function Tasks(props) {
       <EditTarefaModal
         isOpenEdit={isOpenEdit}
         setIsOpenEdit={setIsOpenEdit}
+        task={props}
+      />
+      <DetailsTarefaModal
+        isOpenDetails={isOpenDetails}
+        setIsOpenDetails={setIsOpenDetails}
         task={props}
       />
 
@@ -47,7 +54,7 @@ function Tasks(props) {
           >
             {nome}
           </h2>
-          <p className="data">25/07/2024 - 18:00</p>
+          <p className="data">{dataCriacao}</p>
         </div>
         <div id="actions">
           <span className="actions-icons">
@@ -55,6 +62,7 @@ function Tasks(props) {
               className="icons"
               src={descButton}
               alt="Icone dos detalhes da tarefa"
+              onClick={(e) => setIsOpenDetails(true)}
             />
             <img
               className="icons"
