@@ -29,6 +29,7 @@ function Body() {
       console.log(findValue)
       console.log(value.length)
       setFilterList(filterList.filter((task) => task.nome === value));
+      setFindValue(null);
       return;
     }
     setFindValue(null);
@@ -52,7 +53,7 @@ function Body() {
             <div className="filter-select find">
               <input
                 placeholder="Filtrar pelo nome..."
-                onChange={() => {
+                onChange={(event) => {
                   console.log("tem coisa aq hein");
                   setFindValue(event.target.value);
                   console.log(
@@ -74,7 +75,7 @@ function Body() {
               <p>Filtrar</p>
               <select
                 value={filterValue}
-                onChange={() => handleClickFilter(event.target.value)}
+                onChange={(event) => handleClickFilter(event.target.value)}
               >
                 <option value="0">Todas</option>
                 <option value="concluida">Concluídas</option>
