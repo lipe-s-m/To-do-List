@@ -8,7 +8,7 @@ import EditTarefaModal from "../Modals/editar_tarefa";
 import DetailsTarefaModal from "../Modals/detalhes_tarefa";
 
 function Tasks(props) {
-  const { id, nome, descricao, dificuldade, dataCriacao, status, ultimaModificacao } =
+  const { id, nome, dataCriacao, status } =
     props;
 
   const [isOpenDelete, setIsOpenDelete] = useState(false);

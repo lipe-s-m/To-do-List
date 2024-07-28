@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./index.css";
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { addTask } from "../../../redux/task/action";
 
 export const obterDataHora = () => {
