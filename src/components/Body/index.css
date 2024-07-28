@@ -181,7 +181,7 @@ select:hover {
 }
 @media (max-width: 425px) {
   .body-background {
-    width: 73%;
+    width: 79%;
     padding-bottom: 7%;
   }
   button {
@@ -201,7 +201,7 @@ select:hover {
 }
 @media (max-width: 375px) {
   .body-background {
-    width: 76%;
+    width: 82%;
   }
   button {
     font-size: 16px;
@@ -223,7 +223,7 @@ select:hover {
 
 @media (max-width: 325px) {
   .body-background {
-    width: 79%;
+    width: 85%;
   }
   button {
     font-size: 15px;

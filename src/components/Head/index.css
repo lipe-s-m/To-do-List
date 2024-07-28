@@ -25,6 +25,12 @@
     margin-top: -8%;
     width: 25%;
   }
+  .modal-content-details {
+    width: 25%;
+  }
+  .modal-content-details h1 {
+    font-size: 35px;
+  }
 }
 @media (max-width: 1400px) {
   #container {
@@ -36,6 +42,12 @@
   .modal-content {
     margin-top: -14%;
     width: 30%;
+  }
+  .modal-content-details {
+    width: 30%;
+  }
+  .modal-content-details h1 {
+    font-size: 33px;
   }
 }
 
@@ -51,6 +63,12 @@
     margin-top: -20%;
     width: 35%;
   }
+  .modal-content-details h1 {
+    font-size: 33px;
+  }
+  .modal-content-details {
+    width: 40%;
+  }
 }
 @media (max-width: 975px) {
   #container {
@@ -61,8 +79,14 @@
     font-size: 36px;
   }
   .modal-content {
-    margin-top: -28%;
     width: 38%;
+    padding: 4% 3%;
+  }
+  .modal-content-details h1 {
+    font-size: 32px;
+  }
+  .modal-content-details {
+    width: 40%;
     padding: 4% 3%;
   }
 }
@@ -76,7 +100,6 @@
     font-size: 34px;
   }
   .modal-content {
-    margin-top: -30%;
     width: 45%;
     padding: 4% 3%;
   }
@@ -95,7 +118,6 @@
     font-size: 18px;
   }
   .modal-content {
-    margin-top: -40%;
     width: 48%;
     padding: 4% 4%;
   }
@@ -111,7 +133,6 @@
     width: 66%;
   }
   .modal-content {
-    margin-top: -60%;
     width: 50%;
     padding: 4% 4%;
   }
@@ -139,7 +160,6 @@
     width: 70%;
   }
   .modal-content {
-    margin-top: -75%;
     width: 55%;
   }
   .modal-content h1 {
@@ -151,6 +171,26 @@
   .modal-content select {
     font-size: 15.5px;
   }
+  .modal-content-details {
+    width: 80%;
+    padding-bottom: 20%;
+  }
+  .modal-content-details h1 {
+    font-size: 23px;
+  }
+  .modal-content-details p {
+    font-size: 18px;
+  }
+  
+  .modal-content-details label {
+    font-size: 18px;
+  }
+  .modal-content-details input::placeholder {
+    font-size: 13px;
+  }
+  .modal-content-details select {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 425px) {
@@ -160,10 +200,9 @@
   #container {
     padding: 2.3%;
     margin-top: 20%;
-    width: 75%;
+    width: 80%;
   }
   .modal-content {
-    margin-top: -95%;
     width: 60%;
   }
   .modal-content h1 {
@@ -178,6 +217,26 @@
   .modal-content select {
     font-size: 15px;
   }
+  .modal-content-details {
+    width: 80%;
+    padding-bottom: 20%;
+  }
+  .modal-content-details h1 {
+    font-size: 23px;
+  }
+  .modal-content-details p {
+    font-size: 18px;
+  }
+  
+  .modal-content-details label {
+    font-size: 18px;
+  }
+  .modal-content-details input::placeholder {
+    font-size: 13px;
+  }
+  .modal-content-details select {
+    font-size: 15px;
+  }
 }
 @media (max-width: 375px) {
   #container h1 {
@@ -186,22 +245,39 @@
   #container {
     padding: 2.5%;
     margin-top: 20%;
-    width: 78%;
+    width: 83%;
   }
   .modal-content {
-    margin-top: -105%;
     width: 60%;
   }
   .modal-content h1 {
     font-size: 23px;
   }
+  
   .modal-content label {
     font-size: 18px;
   }
   .modal-content input::placeholder {
     font-size: 13px;
   }
-  .modal-content select {
+  .modal-content-details {
+    width: 80%;
+    padding-bottom: 20%;
+  }
+  .modal-content-details h1 {
+    font-size: 23px;
+  }
+  .modal-content-details p {
+    font-size: 18px;
+  }
+  
+  .modal-content-details label {
+    font-size: 18px;
+  }
+  .modal-content-details input::placeholder {
+    font-size: 13px;
+  }
+  .modal-content-details select {
     font-size: 15px;
   }
 }
@@ -213,6 +289,6 @@
     padding: 3%;
 
     margin-top: 20%;
-    width: 81%;
+    width: 86%;
   }
 }
