@@ -98,7 +98,7 @@ function Body() {
           ))}
 
           <button
-            onClick={(e) => {
+            onClick={() => {
               setFilterValue("0"), setisOpenAdd(true);
             }}
           >
