@@ -27,7 +27,7 @@ function DeleteTarefaModal({ isOpenDelete, setIsOpenDelete, id }) {
     <>
       <div className="modal-overlay" onClick={handleClickOutside}>
         <div className="modal-content" ref={modalRef}>
-          <h1 className="text-red">Excluir Tarefa</h1>
+          <h1 className="aviso-title">Excluir Tarefa</h1>
 
           <p className="aviso">Tem certeza que deseja excluir essa tarefa?</p>
 

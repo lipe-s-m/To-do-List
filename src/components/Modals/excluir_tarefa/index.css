@@ -3,7 +3,11 @@
   opacity: 0.9;
   font-size: 42px;
 }
-
+.aviso-title {
+  color: #771f1f;
+  opacity: 0.9;
+  font-size: 42px;
+}
 .aviso {
   font-size: 32px;
   font-weight: bold;
@@ -15,7 +19,35 @@
 
 .confirm-button {
   background-color: #57af0f;
+  font-size: 22px;
 }
 .cancel-button {
   background-color: #c92626;
+  font-size: 22px;
+}
+@media(max-width: 650px){
+  .aviso{
+    font-size: 26px;
+  }
+}
+@media(max-width: 615px){
+  .aviso{
+    font-size: 22px;
+    width: 80%;
+
+    padding: 5%;
+  }
+}
+@media(max-width: 500px){
+  .aviso{
+    font-size: 18px;
+    padding: 5%;
+    width: 70%;
+  }
+  .confirm-button {
+    font-size: 20px;
+  }
+  .cancel-button {
+    font-size: 20px;
+  }
 }

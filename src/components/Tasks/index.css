@@ -86,3 +86,122 @@ hr {
   opacity: 0.2; /* Opacidade */
   margin: 5% auto 7%; /* Margens para espaçamento */
 }
+
+
+@media (max-width: 975px) {
+  .data{
+    font-size: 16px;
+  }
+  #actions{
+    padding-right: 4%;
+  }
+  .actions-icons .icons {
+    max-height: 25px;
+  }
+  .actions-texts p {
+    padding: 3%;
+    padding-top: 1%;
+    font-size: 12px;
+  }
+  .icon-delete {
+    max-height: 33px;
+  }
+}
+
+@media (max-width: 750px) {
+  .data{
+    font-size: 15px;
+  }
+  #actions{
+    padding-right: 5%;
+  }
+  .actions-icons .icons {
+    height: 24px;
+  }
+  .actions-texts p {
+    padding: 3%;
+    padding-top: 1%;
+    font-size: 12px;
+  }
+  .icon-delete {
+    height: 32px;
+  }
+  
+}
+
+@media (max-width: 615px) {
+  .data{
+    font-size: 12px;
+    padding: 2px;
+    margin-top: 3%;
+  }
+  #task-left h2 {
+    font-size: 16px;
+    padding: 2px;
+
+}
+.actions-icons .icons {
+  height: 21px;
+}
+.icon-delete {
+  height: 29px;
+}
+.actions-texts p {
+  padding: 3%;
+  padding-top: 1%;
+  font-size: 10px;
+}
+
+}
+
+@media (max-width: 515px) {
+  .data{
+    font-size: 10px;
+    padding-left: 5px;
+    margin-top: 0;
+  }
+  #task-left h2 {
+    font-size: 13px;
+}
+.actions-icons .icons {
+  height: 15px;
+}
+.icon-delete {
+  height: 22px;
+  margin-left: 1%;
+}
+.actions-texts p {
+  padding: 3%;
+  padding-top: 1%;
+  font-size: 8px;
+}
+}
+
+@media (max-width: 425px) {
+ 
+}
+@media (max-width: 375px) {
+  .data{
+    font-size: 9px;
+    padding-left: 5px;
+  }
+  #task-left h2 {
+    font-size: 12px;
+    padding-left: 5px;
+}
+.actions-icons .icons {
+  height: 15px;
+}
+.icon-delete {
+  height: 22px;
+  margin-left: 1%;
+}
+.actions-texts p {
+  padding: 3%;
+  padding-top: 1%;
+  font-size: 8px;
+}
+}
+@media (max-width: 325px) {
+
+}
