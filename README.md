@@ -118,3 +118,10 @@
 
 ### I created the initial design in Figma!
 #### - Figma link: [https://www.figma.com/design/NvO14tgqQwNeSMAhZYhbNW/to-do-list?t=k1ESuUGjDgLpP9al-1](https://www.figma.com/design/NvO14tgqQwNeSMAhZYhbNW/to-do-list?t=k1ESuUGjDgLpP9al-1)
+
+---
+
+---
+
+
+![to-do wallpaper 2](https://github.com/user-attachments/assets/437f88b2-0111-4388-b939-65824ad67878)
