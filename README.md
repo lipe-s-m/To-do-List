@@ -23,6 +23,8 @@
 #### 3. `npm install`
 #### 4. `npm start`
 
+### Vídeo mostrando o funcionamento da aplicação: https://youtu.be/yu0U1Ude8EM
+
 ---
 
 ## Através do redux, implementei funcionalidades como:
