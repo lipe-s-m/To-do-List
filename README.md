@@ -3,7 +3,7 @@
 <a name="language"></a>
 ## Language: 
  - [Português](#languagePt)
- - [Inglês](#languageEn)
+ - [English](#languageEn)
 
 <a id="languagePt"></a>
 ## Português:
