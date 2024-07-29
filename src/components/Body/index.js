@@ -14,7 +14,6 @@ function Body() {
   
   // obtem lista de tarefas completa
   const list = useSelector((rootReducers) => rootReducers.taskReducer.tasks);
-  
   const [filterList, setFilterList] = useState(list);
   
   // filtrar por pendente, concluido ou todas as tarefas
@@ -85,7 +84,7 @@ function Body() {
             </div>
           </label>
           <hr className="divisor"></hr>
-          {filterList.map((task, index) => (
+          {filterList.slice().reverse().map((task, index) => (
             <Tasks
               key={index}
               id={task.id}
