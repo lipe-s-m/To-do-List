@@ -81,7 +81,7 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
               {...register("descricao")}
             />
 
-            <label>Dificuldade da Tarefa</label>
+            <label>* Dificuldade da Tarefa</label>
             <select
               className={errors?.dificuldade && "input-error"}
               {...register("dificuldade", {
