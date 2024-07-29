@@ -1,16 +1,16 @@
-.concluida{
+.concluida {
   background-color: rgba(206, 242, 193, 0.7);
 }
-.pendente{
+.pendente {
   background-color: rgba(255, 162, 127, 0.6);
 }
- #task-left .pendente{
+#task-left .pendente {
   background: none;
-  color: #AB0605;
+  color: #ab0605;
 }
-#task-left .concluida{
+#task-left .concluida {
   background: none;
-  color: #125B4E;
+  color: #125b4e;
 }
 .task {
   max-width: 100%;
@@ -21,11 +21,11 @@
   width: auto;
   border-radius: 30px;
   justify-content: space-between;
-  overflow-wrap: break-word; 
-  word-wrap: break-word; 
-  hyphens: auto; 
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
-#task-left{
+#task-left {
   width: 50%;
 }
 #task-left h2 {
@@ -87,12 +87,11 @@ hr {
   margin: 5% auto 7%; /* Margens para espaçamento */
 }
 
-
 @media (max-width: 975px) {
-  .data{
+  .data {
     font-size: 16px;
   }
-  #actions{
+  #actions {
     padding-right: 4%;
   }
   .actions-icons .icons {
@@ -109,10 +108,10 @@ hr {
 }
 
 @media (max-width: 750px) {
-  .data{
+  .data {
     font-size: 15px;
   }
-  #actions{
+  #actions {
     padding-right: 5%;
   }
   .actions-icons .icons {
@@ -126,11 +125,10 @@ hr {
   .icon-delete {
     height: 32px;
   }
-  
 }
 
 @media (max-width: 615px) {
-  .data{
+  .data {
     font-size: 12px;
     padding: 2px;
     margin-top: 3%;
@@ -138,70 +136,87 @@ hr {
   #task-left h2 {
     font-size: 16px;
     padding: 2px;
-
-}
-.actions-icons .icons {
-  height: 21px;
-}
-.icon-delete {
-  height: 29px;
-}
-.actions-texts p {
-  padding: 3%;
-  padding-top: 1%;
-  font-size: 10px;
-}
-
+  }
+  .actions-icons .icons {
+    height: 21px;
+  }
+  .icon-delete {
+    height: 29px;
+  }
+  .actions-texts p {
+    padding: 3%;
+    padding-top: 1%;
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 515px) {
-  .data{
+  .data {
     font-size: 10px;
     padding-left: 5px;
     margin-top: 0;
   }
   #task-left h2 {
     font-size: 13px;
-}
-.actions-icons .icons {
-  height: 15px;
-}
-.icon-delete {
-  height: 22px;
-  margin-left: 1%;
-}
-.actions-texts p {
-  padding: 3%;
-  padding-top: 1%;
-  font-size: 8px;
-}
+  }
+  .actions-icons .icons {
+    height: 19px;
+  }
+  .icon-delete {
+    height: 22px;
+  }
+  .actions-texts p {
+    padding: 3%;
+    padding-top: 1%;
+    font-size: 9px;
+  }
 }
 
 @media (max-width: 425px) {
- 
 }
 @media (max-width: 375px) {
-  .data{
+  .data {
     font-size: 9px;
     padding-left: 5px;
   }
   #task-left h2 {
     font-size: 12px;
     padding-left: 5px;
+  }
+  .actions-icons .icons {
+    height: 18px;
+  }
+  .icon-delete {
+    height: 22px;
+  }
+  .actions-texts p {
+    padding: 3%;
+    padding-top: 1%;
+    font-size: 9px;
+  }
 }
-.actions-icons .icons {
-  height: 15px;
-}
-.icon-delete {
-  height: 22px;
-  margin-left: 1%;
-}
-.actions-texts p {
-  padding: 3%;
-  padding-top: 1%;
-  font-size: 8px;
-}
-}
-@media (max-width: 325px) {
 
+@media (max-width: 325px) {
+}
+@media (max-width: 285px) {
+  .data {
+    font-size: 7px;
+    padding-left: 5px;
+  }
+  #task-left h2 {
+    font-size: 10px;
+    padding-left: 5px;
+  }
+  .actions-icons .icons {
+    height: 13px;
+  }
+  .icon-delete {
+    height: 16px;
+    margin-left: 1%;
+  }
+  .actions-texts p {
+    padding: 3%;
+    padding-top: 1%;
+    font-size: 7px;
+  }
 }
