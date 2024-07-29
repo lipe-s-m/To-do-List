@@ -105,13 +105,11 @@ button {
 select:hover {
   cursor: pointer;
 }
-/* width: 34%; */
 
 @media (max-width: 1710px) {
   .body-background {
     width: 40%;
   }
-
 }
 
 @media (max-width: 1400px) {
@@ -138,10 +136,6 @@ select:hover {
 @media (max-width: 750px) {
   .body-background {
     width: 62%;
-    padding-bottom: 4%;
-  }
-  button {
-    font-size: 20px;
   }
 }
 @media (max-width: 615px) {
@@ -188,9 +182,6 @@ select:hover {
     font-size: 18px;
     width: 80%;
   }
-  img {
-    height: 20px;
-  }
 
   #filters input::placeholder {
     font-size: 16px;
@@ -205,19 +196,13 @@ select:hover {
   }
   button {
     font-size: 16px;
-    width: 80%;
   }
-  img {
-    height: 20px;
-  }
+
   #filters input {
     padding: 6px;
   }
   #filters input::placeholder {
     font-size: 15px;
-  }
-  #filters p {
-    font-size: 18px;
   }
 }
 
@@ -228,7 +213,6 @@ select:hover {
   button {
     font-size: 15px;
     padding: 6px;
-    width: 80%;
   }
   img {
     height: 16px;
@@ -250,9 +234,7 @@ select:hover {
     padding: 5px;
     width: 83%;
   }
-  img {
-    height: 16px;
-  }
+
   #filters input::placeholder {
     font-size: 12px;
   }

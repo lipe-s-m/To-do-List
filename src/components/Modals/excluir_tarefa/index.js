@@ -8,14 +8,11 @@ function DeleteTarefaModal({ isOpenDelete, setIsOpenDelete, id }) {
 
   const modalRef = useRef();
 
-  //Confirmar exclusão da tarefa
   const handleDeletarSubmitClick = () => {
     dispatch(removeTask(id));
     setIsOpenDelete(false);
   };
 
-  //verifica se clicou fora do modal
-  //se sim, o modal vai ser fechado
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       setIsOpenDelete(false);

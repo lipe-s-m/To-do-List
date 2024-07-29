@@ -1,11 +1,13 @@
-import "./index.css"
+import "./index.css";
 
 function Head() {
-  return <>
-    <div id="container">
+  return (
+    <>
+      <div id="container">
         <h1>To-do List</h1>
-    </div>
-  </>;
+      </div>
+    </>
+  );
 }
 
 export default Head;

@@ -1,14 +1,13 @@
-/* styles.css */
 
 .main {
     animation-name: fadeIn;
-    animation-delay: 0.2s; /* Delay para iniciar a animação */
+    animation-delay: 0.2s; 
   }
   
   .fade {
-    opacity: 0; /* Começa invisível */
-    animation-duration: 2s; /* Duração da animação */
-    animation-fill-mode: forwards; /* Mantém o estado final da animação */
+    opacity: 0;
+    animation-duration: 2s; 
+    animation-fill-mode: forwards; 
   }
   
   @keyframes fadeIn {

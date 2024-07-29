@@ -16,16 +16,13 @@ const taskReducer = (state = initialState, action) => {
       };
 
     case taskActionType.REMOVE:
-      console.log("payload excluido: " + action.payload);
       return {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload),
       };
 
     case taskActionType.EDIT:
-      const { id, ...updates } = action.payload; 
-      console.log(action.payload);
-      console.log(id);
+      const { id, ...updates } = action.payload;
       if (
         id === undefined ||
         id < 0 ||

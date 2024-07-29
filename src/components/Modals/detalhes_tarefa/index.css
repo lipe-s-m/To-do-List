@@ -6,11 +6,8 @@
   width: 100%;
   word-wrap: break-word;
   text-align: center;
-  font-size: 18px;
-  text-align: center;
   font-size: 20px;
   opacity: 80%;
-  text-align: center;
 }
 
 .button-select {
@@ -72,11 +69,9 @@
 }
 @media (max-width: 1200px) {
   .button-select {
-    padding: 4%;
     width: 90%;
   }
   .voltar-button {
-    padding: 3%;
     width: 73%;
   }
 }
@@ -87,20 +82,7 @@
     font-size: 20px;
   }
   .voltar-button {
-    padding: 3%;
     width: 73%;
-  }
-}
-
-@media (max-width: 400px) {
-  .button-select {
-    width: 80%;
-    font-size: 15px;
-  }
-  .voltar-button {
-    padding: 3%;
-    width: 70%;
-    font-size: 15px;
   }
 }
 

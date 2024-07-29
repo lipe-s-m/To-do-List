@@ -8,14 +8,12 @@ import { obterDataHora } from "../adicionar_tarefa";
 function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
   const { id, nome, descricao, dificuldade, status, ultimaModificacao } = task;
 
-  //metodos do useForm
   const { register, handleSubmit, reset } = useForm();
 
   const dispatch = useDispatch();
 
   const modalRef = useRef();
 
-  //Confirmar envio da tarefa
   const handleEditarSubmitClick = (data) => {
     if (
       data.nome === null &&
@@ -49,8 +47,7 @@ function EditTarefaModal({ isOpenEdit, setIsOpenEdit, task }) {
     setIsOpenEdit(false);
   };
 
-  //verifica se clicou fora do modal
-  //se sim, o modal vai ser fechado
+ 
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       reset({

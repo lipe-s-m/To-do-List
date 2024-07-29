@@ -18,7 +18,6 @@ function DetailsTarefaModal({ isOpenDetails, setIsOpenDetails, task }) {
 
   const modalRef = useRef();
 
-  //marcar como concluida
   const handleSubmitConcluidaClick = () => {
     const updatedTask = {
       ...task,
@@ -30,7 +29,6 @@ function DetailsTarefaModal({ isOpenDetails, setIsOpenDetails, task }) {
     setIsOpenDetails(false);
   };
 
-  //marcar como concluida
   const handleSubmitPendenteClick = () => {
     const updatedTask = {
       ...task,
@@ -38,12 +36,9 @@ function DetailsTarefaModal({ isOpenDetails, setIsOpenDetails, task }) {
       ultimaModificacao: obterDataHora(),
     };
     dispatch(editTask(updatedTask));
-
     setIsOpenDetails(false);
   };
 
-  //verifica se clicou fora do modal
-  //se sim, o modal vai ser fechado
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       setIsOpenDetails(false);
@@ -56,7 +51,6 @@ function DetailsTarefaModal({ isOpenDetails, setIsOpenDetails, task }) {
       <div className="modal-overlay-details" onClick={handleClickOutside}>
         <div className="modal-content-details" ref={modalRef}>
           <h1>Detalhes da Tarefa</h1>
-
           <div className="form-group">
             <label>Nome da Tarefa</label>
             <p className="placeholder">{nome}</p>

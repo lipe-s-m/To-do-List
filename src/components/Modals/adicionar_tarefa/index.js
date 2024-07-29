@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./index.css";
 import { useForm } from "react-hook-form";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTask } from "../../../redux/task/action";
 
 export const obterDataHora = () => {
@@ -15,8 +15,8 @@ export const obterDataHora = () => {
   const dataAtual = `${dia}/${mes}/${ano} - ${hora}:${minutos}`;
   return dataAtual;
 };
+
 function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
-  //metodos do useForm
   const {
     register,
     handleSubmit,
@@ -28,14 +28,12 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
 
   const modalRef = useRef();
 
-  //Confirmar envio da tarefa
   const handleAdicionarSubmitClick = (data) => {
     const newTask = {
       ...data,
       status: "pendente",
       dataCriacao: obterDataHora(),
       ultimaModificacao: obterDataHora(),
-
     };
     dispatch(addTask(newTask));
     reset({
@@ -46,8 +44,6 @@ function AddTarefaModal({ isOpenAdd, setisOpenAdd }) {
     setisOpenAdd(false);
   };
 
-  //verifica se clicou fora do modal
-  //se sim, o modal vai ser fechado
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       reset({

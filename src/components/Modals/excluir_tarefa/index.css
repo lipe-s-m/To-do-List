@@ -25,23 +25,21 @@
   background-color: #c92626;
   font-size: 22px;
 }
-@media(max-width: 650px){
-  .aviso{
+@media (max-width: 650px) {
+  .aviso {
     font-size: 26px;
   }
 }
-@media(max-width: 615px){
-  .aviso{
+@media (max-width: 615px) {
+  .aviso {
     font-size: 22px;
     width: 80%;
-
     padding: 5%;
   }
 }
-@media(max-width: 500px){
-  .aviso{
-    font-size: 18px;
-    padding: 5%;
+@media (max-width: 500px) {
+  .aviso {
+    font-size: 22px;
     width: 70%;
   }
   .confirm-button {
@@ -51,28 +49,17 @@
     font-size: 20px;
   }
 }
-@media(max-width: 370px){
- 
-  .aviso{
-    font-size: 20px;
-    padding: 5%;
-    width: 70%;
-  }
-  .confirm-button {
-    font-size: 20px;
-  }
-  .cancel-button {
+@media (max-width: 370px) {
+  .aviso {
     font-size: 20px;
   }
 }
-@media(max-width: 285px){
-  .aviso-title{
+@media (max-width: 285px) {
+  .aviso-title {
     font-size: 22px;
   }
-  .aviso{
+  .aviso {
     font-size: 15px;
-    padding: 5%;
-    width: 70%;
   }
   .confirm-button {
     font-size: 15px;
