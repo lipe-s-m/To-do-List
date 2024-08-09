@@ -1,4 +1,4 @@
-# To-do List (Easysecrets)
+# To-do List
 ![to-do wallpaper](https://github.com/user-attachments/assets/d11e5823-a907-4d00-b3f9-3409e5d34e41)
 
 <a name="language"></a>
@@ -18,7 +18,7 @@
 
 ## Para rodar este projeto, siga estas etapas:
 
-#### 1. `git clone https://github.com/lipe-s-m/To-do-List-Easysecrets.git`
+#### 1. `git clone https://github.com/lipe-s-m/To-do-List.git`
 #### 2. `cd To-do-List-Easysecrets`
 #### 3. `npm install`
 #### 4. `npm start`
@@ -79,7 +79,7 @@
 
 ## To run this project, you must do this:
 
-#### 1. `git clone https://github.com/lipe-s-m/To-do-List-Easysecrets.git`
+#### 1. `git clone https://github.com/lipe-s-m/To-do-List.git`
 #### 2. `cd To-do-List-Easysecrets`
 #### 3. `npm install`
 #### 4. `npm start`
